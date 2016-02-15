@@ -1,11 +1,24 @@
+---
+sudo: required
 language: ruby
+cache: bundler
 
-rvm:
-- 2.0.0
-- 1.9.3
-- 1.9.2
-- ruby-head
+# necessary for docker to work
+dist: trusty
+services:
+  - docker
+
+before_install:
+  - gem install bundler
+  - gem --version
 
 matrix:
+  include:
+    - rvm: 1.9.3
+    - rvm: 2.0
+    - rvm: 2.1
+    - rvm: ruby-head
+    - rvm: 2.2
+      script: bundle exec rake kitchen:all
   allow_failures:
-  - rvm: ruby-head
+    - rvm: ruby-head
