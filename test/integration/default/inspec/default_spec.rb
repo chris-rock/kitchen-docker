@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+# encoding: utf-8
 
 describe file('/etc/passwd') do
   it { should be_file }
