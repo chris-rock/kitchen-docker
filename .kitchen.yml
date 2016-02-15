@@ -51,7 +51,7 @@ suites:
     driver:
       build_context: false
   - name: capabilities
-    excludes: [arch,unknown,centos-7,centos-6.7,dockerfile]
+    excludes: [arch,unknown,centos-7,centos-6.7,dockerfile,linked]
     driver:
       provision_command:
       - curl -L http://www.chef.io/chef/install.sh | bash
@@ -60,4 +60,3 @@ suites:
       password: kitchen
       cap_drop:
       - NET_ADMIN
-
